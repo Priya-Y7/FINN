@@ -45,8 +45,6 @@ First run tries live data. If sources are unreachable it loads **labelled sample
 - `backend/push/digest.py` windowed digest, weekend fallback, summary line, briefing
 - `python -m backend.cli process` re-runs classify/score/enrich/alerts
 
-Not built yet: browser push notifications, voice, real Ask answers (Pull). Results extraction from real PDFs is
-untested (no live filings were reachable); in sample mode, figures are synthetic and labelled as such.
 
 ## Pull stage (what is in it)
 
@@ -58,5 +56,3 @@ untested (no live filings were reachable); in sample mode, figures are synthetic
 - `backend/pull/ask.py` cited answers; uncited sentences dropped; "Not found in the company's documents." when unsupported
 - `backend/pull/research.py` + `runner.py` the research job, streamed over SSE, cached by document hash
 - `python -m backend.cli research SUZLON` runs one company from the terminal
-
-
