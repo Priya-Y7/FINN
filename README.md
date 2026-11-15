@@ -1,7 +1,6 @@
 # FINN: Only what matters.
 
 A mobile-first financial agent for a 20-stock Indian equity portfolio (NSE/BSE). Foundation, Push and Pull are built: data sources, SQLite store, API, web app, ranked digest, alerts and results cards.
-Polish remains.
 
 ## Run it (one command)
 
