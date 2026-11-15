@@ -1,0 +1,41 @@
+# All tunable numbers live here. Nothing below is hard-coded elsewhere.
+
+database:
+  path: data/finn.db
+
+holdings:
+  total_value_inr: 100000000      # 10 crore
+  start_date: "2026-08-14"        # quantities are fixed from the close on/after this date
+
+prices:
+  history_period: "1y"            # yfinance period
+  yahoo_suffix: ".NS"
+
+metrics:                          # section 5.3
+  window_days: 20                 # N for volume ratio and z-score
+  z_threshold: 2.5                # "unusual for this stock"
+  fixed_pct_threshold: 4.0        # fixed % mode
+  volume_ratio_threshold: 2.0
+  min_avg_volume: 10000           # skip volume alerts below this average volume
+
+tiers:                            # section 5.1 / 5.2
+  act_now_min: 70
+  worth_knowing_min: 40
+
+jobs:
+  announcements_lookback_days: 7
+  market_open_ist: "09:00"
+  market_close_ist: "18:00"
+  announcements_every_minutes: 15
+  prices_run_at_ist: "16:30"
+
+models:                           # section 6.8; swap models here only
+  cheap:  claude-haiku-5-5
+  strong: claude-sonnet-5-5
+  max_tokens: 2000
+  # With no ANTHROPIC_API_KEY (or FINN_MOCK_LLM=1) the app runs in mock mode.
+
+http:
+  timeout_seconds: 25
+  retries: 2
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"

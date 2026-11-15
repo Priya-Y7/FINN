@@ -1,0 +1,26 @@
+# FINN demo portfolio: 20 NSE stocks. Nothing else in the code names a company.
+# weight = target % of the 10 crore mock portfolio (sums to 100).
+# bse_code is used only as the BSE fallback source. Codes were written from memory:
+# run `python -m backend.cli verify-sources` to confirm each one matches its company.
+# is_bank = results use NII / PPOP instead of EBITDA.
+portfolio:
+  - {ticker: SBIN,       name: State Bank of India,          sector: Financials,  size: L, weight: 8, is_bank: true,  bse_code: "500112"}
+  - {ticker: BAJFINANCE, name: Bajaj Finance,                sector: Financials,  size: L, weight: 7, is_bank: true,  bse_code: "500034"}
+  - {ticker: CDSL,       name: CDSL,                         sector: Financials,  size: M, weight: 3, is_bank: false, bse_code: "543333"}
+  - {ticker: UJJIVANSFB, name: Ujjivan Small Finance Bank,   sector: Financials,  size: S, weight: 2, is_bank: true,  bse_code: "542904"}
+  - {ticker: INFY,       name: Infosys,                      sector: IT,          size: L, weight: 8, is_bank: false, bse_code: "500209"}
+  - {ticker: KPITTECH,   name: KPIT Technologies,            sector: IT,          size: M, weight: 4, is_bank: false, bse_code: "542651"}
+  - {ticker: ONGC,       name: ONGC,                         sector: Energy,      size: L, weight: 5, is_bank: false, bse_code: "500312"}
+  - {ticker: SUZLON,     name: Suzlon Energy,                 sector: Energy,      size: M, weight: 4, is_bank: false, bse_code: "532667"}
+  - {ticker: ASHOKLEY,   name: Ashok Leyland,                 sector: Auto,        size: M, weight: 4, is_bank: false, bse_code: "500477"}
+  - {ticker: DMART,      name: Avenue Supermarts (DMart),    sector: Consumer,    size: L, weight: 6, is_bank: false, bse_code: "540376"}
+  - {ticker: NYKAA,      name: FSN E-Commerce (Nykaa),       sector: Consumer,    size: M, weight: 3, is_bank: false, bse_code: "543384"}
+  - {ticker: DRREDDY,    name: Dr. Reddy's Laboratories,     sector: Healthcare,  size: L, weight: 5, is_bank: false, bse_code: "500124"}
+  - {ticker: KIMS,       name: KIMS Hospitals,               sector: Healthcare,  size: M, weight: 4, is_bank: false, bse_code: "543308"}
+  - {ticker: HINDALCO,   name: Hindalco Industries,           sector: Metals,      size: L, weight: 5, is_bank: false, bse_code: "500440"}
+  - {ticker: TATASTEEL,  name: Tata Steel,                    sector: Metals,      size: L, weight: 5, is_bank: false, bse_code: "500470"}
+  - {ticker: PIDILITIND, name: Pidilite Industries,          sector: Chemicals,   size: L, weight: 5, is_bank: false, bse_code: "500331"}
+  - {ticker: LT,         name: Larsen & Toubro,               sector: Industrials, size: L, weight: 8, is_bank: false, bse_code: "500510"}
+  - {ticker: COCHINSHIP, name: Cochin Shipyard,              sector: Industrials, size: M, weight: 4, is_bank: false, bse_code: "540678"}
+  - {ticker: DLF,        name: DLF,                          sector: Real estate, size: L, weight: 4, is_bank: false, bse_code: "532868"}
+  - {ticker: ULTRACEMCO, name: UltraTech Cement,             sector: Cement,       size: L, weight: 6, is_bank: false, bse_code: "532538"}

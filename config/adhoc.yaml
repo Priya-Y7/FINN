@@ -1,0 +1,8 @@
+# Ad-hoc research set: outside the portfolio, used to prove the engine works on companies
+# it was not built around. Any other NSE ticker also works at request time.
+adhoc:
+  - {ticker: TCS,      name: Tata Consultancy Services, sector: IT,          size: L, is_bank: false, bse_code: "532540"}
+  - {ticker: TRENT,    name: Trent,                     sector: Retail,      size: L, is_bank: false, bse_code: "500251"}
+  - {ticker: POLYCAB,  name: Polycab India,             sector: Electricals, size: M, is_bank: false, bse_code: "542652"}
+  - {ticker: AARTIIND, name: Aarti Industries,          sector: Chemicals,   size: S, is_bank: false, bse_code: "524208"}
+  - {ticker: HAL,      name: Hindustan Aeronautics,     sector: Defence,     size: L, is_bank: false, bse_code: "541154"}
