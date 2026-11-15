@@ -59,6 +59,4 @@ untested (no live filings were reachable); in sample mode, figures are synthetic
 - `backend/pull/research.py` + `runner.py` the research job, streamed over SSE, cached by document hash
 - `python -m backend.cli research SUZLON` runs one company from the terminal
 
-Without ANTHROPIC_API_KEY the model steps use rule-based fallbacks and the UI says so ("written by rules").
-Not built: streaming of chat answers (they arrive whole), OCR for scanned PDFs, IR-page fallback.
-Parsers for screener.in markup and real PDFs are unverified against the live site.
+
