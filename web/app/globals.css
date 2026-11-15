@@ -1,0 +1,53 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens (R G B). Light is the default; .dark is switched from the menu. */
+:root { --page: 247 247 245; --card: 255 255 255; --line: 230 232 235; --line2: 213 217 222; --ink: 17 20 24; --muted: 95 107 118;
+  --accent: 31 58 95; --accentline: 31 58 95; --good: 26 127 75; --bad: 194 59 59; --caution: 183 121 31; --neutral: 138 148 160;
+  --goodbg: 232 244 238; --badbg: 251 234 234; --cautionbg: 251 243 227; --accentbg: 232 238 246; --track: 238 240 242; color-scheme: light; }
+.dark { --page: 24 29 39; --card: 34 41 56; --line: 56 66 85; --line2: 76 88 111; --ink: 238 241 246; --muted: 166 177 194;
+  --accent: 96 150 230; --accentline: 140 182 240; --good: 74 200 138; --bad: 242 120 124; --caution: 232 182 80; --neutral: 140 152 170;
+  --goodbg: 31 68 56; --badbg: 78 42 50; --cautionbg: 72 60 34; --accentbg: 40 56 86; --track: 48 57 75; color-scheme: dark; }
+.dark .reveal, .dark .lift { box-shadow: 0 1px 2px rgb(0 0 0 / .18), inset 0 1px 0 rgb(255 255 255 / .04); }
+body { background: rgb(var(--page)); color: rgb(var(--ink)); transition: background-color .25s, color .25s; font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+::selection { background: rgb(var(--accent)); color: #fff; }
+input[type=range] { accent-color: rgb(var(--accent)); }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; border-radius: 6px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes pop { 0% { transform: scale(.92); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes slideOut { to { opacity: 0; transform: translateX(40px); height: 0; margin: 0; padding: 0; } }
+@keyframes drawLine { from { stroke-dashoffset: var(--len, 1000); } to { stroke-dashoffset: 0; } }
+@keyframes growX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes growY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(31,58,95,.35); } 50% { box-shadow: 0 0 0 6px rgba(31,58,95,0); } }
+@keyframes toastIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.reveal { animation: fadeUp .45s cubic-bezier(.2,.7,.2,1) both; }
+.fade-in { animation: fadeIn .3s ease both; }
+.pop { animation: pop .25s ease both; }
+.shimmer { background: linear-gradient(90deg, rgb(var(--track)) 25%, rgb(var(--line)) 37%, rgb(var(--track)) 63%); background-size: 200% 100%; animation: shimmer 1.4s infinite linear; }
+.lift { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.lift:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(17,20,24,.07); border-color: rgb(var(--line2)); }
+.press:active { transform: scale(.97); }
+.grow-x { transform-origin: left; animation: growX .7s cubic-bezier(.2,.7,.2,1) both; }
+.grow-y { transform-origin: bottom; animation: growY .6s cubic-bezier(.2,.7,.2,1) both; }
+.dot-pulse { animation: pulseDot 1.8s infinite; }
+.scroll-hide::-webkit-scrollbar { display: none; }
+.scroll-hide { scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+
+@keyframes slideInRight { from { transform: translateX(-100%); } to { transform: none; } }
+.drawer-in { animation: slideInRight .28s cubic-bezier(.2,.7,.2,1) both; }

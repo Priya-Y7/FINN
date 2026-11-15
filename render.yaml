@@ -1,0 +1,31 @@
+# Render Blueprint: two services from one repo. Deploy with New > Blueprint.
+# After the first deploy, set NEXT_PUBLIC_API_URL on finn-web to the finn-api URL and redeploy finn-web.
+services:
+  - type: web
+    name: finn-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: USE_SNAPSHOT_ONLY
+        value: "1"
+      - key: FINN_MOCK_LLM
+        value: "1"        # set to 0 and add ANTHROPIC_API_KEY for real AI answers
+      - key: ANTHROPIC_API_KEY
+        sync: false
+  - type: web
+    name: finn-web
+    runtime: node
+    plan: free
+    rootDir: web
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NEXT_PUBLIC_API_URL
+        sync: false       # e.g. https://finn-api.onrender.com
