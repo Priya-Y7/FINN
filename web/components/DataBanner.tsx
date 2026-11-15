@@ -7,7 +7,7 @@ export default function DataBanner() {
   if (isError) return <Note>Can’t reach the FINN server. Start it with <code>python start.py</code>.</Note>;
   if (!data) return null;
   if (data.data_mode === "sample") return <Note>Sample data: synthetic prices and announcements, not real market data.</Note>;
-  if (data.data_mode === "snapshot") return <Note>Live sources unreachable. Showing the last saved snapshot{data.prices_refreshed_at ? ` (${data.prices_refreshed_at.slice(0, 10)})` : ""}.</Note>;
+  if (data.data_mode === "snapshot") return null;
   if (data.data_mode === "empty") return <Note>No data yet. Run <code>python -m finn.cli sample</code> or <code>refresh</code>.</Note>;
   return null;
 }
