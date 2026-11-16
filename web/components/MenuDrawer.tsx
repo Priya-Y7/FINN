@@ -72,12 +72,6 @@ export default function MenuDrawer({ dataLabel, updated, onRefresh }: { dataLabe
           <Link href="/alerts/rules" onClick={closeMenu} className="press my-1 flex items-center justify-between rounded-lg bg-page px-3 py-2.5 text-sm font-medium text-accent">Set alert thresholds <span aria-hidden>→</span></Link>
         </Section>
 
-        <Section title="Data">
-          <Row title={dataLabel} hint={updated ? `Last refreshed ${updated}` : "Prices not loaded yet"}>
-            <button onClick={() => { onRefresh(); closeMenu(); }} className="press rounded-lg border border-line bg-card px-3 py-1.5 text-xs font-medium text-accent hover:border-accent">↻ Refresh</button>
-          </Row>
-        </Section>
-
         <Section title="About">
           <button onClick={() => { reset(); toast("Preferences reset"); }} className="press mb-3 text-xs font-medium text-bad">Reset all preferences</button>
         </Section>
