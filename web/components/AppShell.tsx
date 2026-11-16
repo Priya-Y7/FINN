@@ -78,11 +78,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             </div>
           ) : (
             <>
-          <div className="rounded-xl border border-line bg-page p-3 text-xs">
-            <p className="flex items-center gap-2 font-medium"><span className={`h-2 w-2 rounded-full ${dot} ${mode === "live" ? "dot-pulse" : ""}`} />{mode === "live" ? "Live data" : mode === "snapshot" ? "Saved snapshot" : mode === "sample" ? "Sample data" : "No data yet"}</p>
-            {meta?.prices_refreshed_at && <p className="mt-1 text-muted">Last refreshed {new Date(meta.prices_refreshed_at).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}</p>}
-            <button onClick={refresh} className="press mt-2 w-full rounded-lg border border-line bg-card py-1.5 font-medium text-accent hover:border-accent">↻ Refresh now</button>
-          </div>
           <p className="px-1 text-[11px] leading-snug text-muted">Primary sources only: exchange filings, annual reports, concall transcripts.</p>
             </>
           )}
